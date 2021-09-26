@@ -5,6 +5,9 @@ const score = document.querySelector('.score')
 
 let result = 0
 let hitPosition
+let currentTime = 9
+let timerId = null
+
 function randomSquare() {
     squares.forEach(squares => {
         squares.classList.remove('mole')
@@ -30,9 +33,24 @@ squares.forEach(square => {
 })
 
 function moveMole() {
-    let timerId = null
+
     timerId = setInterval(randomSquare, 500)
 
 }
 
 moveMole()
+
+function countDown() {
+    currentTime--
+    timeLeft.textContent = currentTime
+
+    if (currentTime==0) {
+        clearInterval(timerId)
+        clearInterval(countDownTimerId)
+        alert('Game over = ' +result)
+
+    }
+}
+
+
+let countDownTimerId = setInterval(countDown, 1000)
