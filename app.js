@@ -1,17 +1,16 @@
-document.getElementById('startButton').addEventListener('click', startGame);
-
-    function startGame() {
         const squares = document.querySelectorAll('.square')
         const mole  = document.querySelector('.mole')
-        const timeLeft = document.querySelectorAll('.time-left')
+        const timeLeft = document.querySelector('.countdown')
         const score = document.querySelector('.score')
+        const startButton = document.getElementById('startButton');
+
 
         let result = 0
         let hitPosition
         let currentTime = 10
         let timerId = null
         let countDownTimerId = null
-
+   
 
         function randomSquare() {
             squares.forEach(squares => {
@@ -36,22 +35,24 @@ document.getElementById('startButton').addEventListener('click', startGame);
 
         function moveMole() {
             timerId = setInterval(randomSquare, 750)
-
         }
-        moveMole()
+    
         function countDown() {
             currentTime--
-            timeLeft.textContent = 'Time Left: ' + currentTime
-
-            if (currentTime==0) {
+            timeLeft.textContent = currentTime
+    
+            if (currentTime === 0) {
                 clearInterval(timerId)
                 clearInterval(countDownTimerId)
-                alert('Game over = ' +result)
-
+                alert('Game over! Your score is ' + result)
+                currentTime = 10
+                timeLeft.textContent = currentTime
+                result = 0
+                score.textContent = result
             }
         }
-      
-        countDownTimerId = setInterval(countDown, 1000)
-    }
-
-
+    
+        startButton.addEventListener('click', () => {
+            moveMole()
+            countDownTimerId = setInterval(countDown, 1000)
+        });
