@@ -1,3 +1,21 @@
+
+#startButton {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    display: inline-block;
+    font-size: 1em;
+    padding: 1em 2em;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    background-color: red;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
+}
+
 .grid{
     width: 606px;
     height: 606px;
@@ -6,7 +24,10 @@
 
 
 }
-
+.main {
+	max-width: 768px;
+	margin: 0 auto;
+}
 .square {
     height: 200px;
     width: 200px;
@@ -14,5 +35,7 @@
 }
 .mole {
     background-color: blue;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 25px rgba(0, 0, 255, 0.863);
 
 }
